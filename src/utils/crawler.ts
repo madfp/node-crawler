@@ -18,7 +18,6 @@ async function getExchangeRate() {
     const response = await api.get(targetUrl, {
       httpsAgent: agent
     })
-
     if (response.status === 200) {
         // Load HTML on Cheerio
         const $ = cheerio.load(response.data);
@@ -37,7 +36,7 @@ async function getExchangeRate() {
 // Define the cron task
 export const cronTask = cron.schedule('0 13 * * *', async () => {
   await getExchangeRate();
-  console.log('Exchange rate saved');
+  console.log('>>> New exchange rate saved');
 }, {
   timezone: "America/Caracas" // Replace with your timezone if needed
 });

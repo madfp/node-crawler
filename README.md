@@ -24,6 +24,10 @@ npm i
 ```bash
 docker compose up -d
 ```
+3. Seed the database
+```bash
+npm run seed
+```
 
 ## Running the project
 You can see all the available scripts on the package.json file

@@ -1,4 +1,5 @@
-import { pool } from "../database/db";
+const {pool}= require('../database/db');
+const initializeDatabase = require('../database/queries').initializeDatabase;
 
 const seeder = [
   {"created_at": "2025-01-29", "rate": "57.3208"},
@@ -29,6 +30,7 @@ const seeder = [
 
 async function seedDatabase() {
   try {
+    await initializeDatabase(); // check if the table exists, if not, create it
     for (const item of seeder) {
       await pool.query(
         `INSERT INTO exchange_rates (rate, created_at) VALUES ($1, $2)`,
