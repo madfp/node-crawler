@@ -1,14 +1,15 @@
-import { initializeDatabase } from './database/queries';
-import express, { Express, Request, Response } from "express"
+import express from 'express'
+import { initializeDatabase } from "./database/queries";
+import {cronTask} from "./utils/crawler"
+import router from "./routes/exchange-rate";
 
-const app: Express = express();
 const port = process.env.PORT || 3000;
+export const app = express();
 
-app.get("/", (req: Request, res: Response) => {
-  res.send("Express + TypeScript Server");
-});
+app.use('/api/rates',router);
 
 app.listen(port, async () => {
   console.log(`[server]: Server is running at http://localhost:${port}`);
   await initializeDatabase();
+  cronTask.start()
 });
