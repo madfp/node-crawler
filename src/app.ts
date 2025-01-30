@@ -4,7 +4,7 @@ import {cronTask} from "./utils/crawler"
 import router from "./routes/exchange-rate";
 
 const port = process.env.PORT || 3000;
-export const app = express();
+const app = express();
 
 app.use('/api/rates',router);
 
