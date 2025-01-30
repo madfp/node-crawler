@@ -33,7 +33,7 @@ async function getExchangeRate() {
   }
 }
 
-// Define the cron task
+// Define the cron task */2 * * * * *
 export const cronTask = cron.schedule('0 13 * * *', async () => {
   await getExchangeRate();
   console.log('>>> New exchange rate saved');

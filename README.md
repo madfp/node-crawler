@@ -33,3 +33,8 @@ npm run seed
 You can see all the available scripts on the package.json file
 ```bash
 npm run dev
+
+
+### Cron job
+The project uses a cron job to crawl the exchange rate daily at 13:00 America/Caracas.
+You can change the cron job schedule on the src/utils/crawler.ts file
