@@ -32,4 +32,4 @@ npm run seed
 ## Running the project
 You can see all the available scripts on the package.json file
 ```bash
-npm run start
+npm run dev
