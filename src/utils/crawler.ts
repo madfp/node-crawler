@@ -35,7 +35,7 @@ async function getExchangeRate() {
 }
 
 // Define the cron task
-export const cronTask = cron.schedule('*/2 * * * * *', async () => {
+export const cronTask = cron.schedule('0 13 * * *', async () => {
   await getExchangeRate();
   console.log('Exchange rate saved');
 }, {
